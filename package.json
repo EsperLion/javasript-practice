@@ -1,0 +1,25 @@
+{
+  "name": "javascript-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EsperLion/javasript-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EsperLion/javasript-practice/issues"
+  },
+  "homepage": "https://github.com/EsperLion/javasript-practice#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.4",
+    "cors": "^2.8.4",
+    "body-parser": "^1.17.2"
+  }
+}

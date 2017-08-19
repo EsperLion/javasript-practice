@@ -33,6 +33,27 @@ RequestBuilder.prototype.get = function (success, error) {
 
 };
 
+RequestBuilder.prototype.post = function (data, success, error) {
+
+    var xhr = new XMLHttpRequest();
+    var self = this;
+
+    xhr.open('POST', this.resource, this.async);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+
+    xhr.onload = function () {
+        success(self.response(this));
+    };
+
+    xhr.error = function () {
+        error(self.response(this));
+    };
+
+    console.log(data);
+    xhr.send(JSON.stringify(data));
+
+};
+
 var resource = new RequestBuilder('http://localhost:3000/');
 
 function getUsersList () {
@@ -41,4 +62,17 @@ function getUsersList () {
     }, function (data) {
         console.log(data);
     });
+};
+
+function addNewUser () {
+    resource.post({
+            name: 'German',
+            surname: 'Kushch',
+            age: 22
+        },
+        function (data) {
+            console.log(data);
+        }, function (data) {
+            console.log(data);
+        });
 };

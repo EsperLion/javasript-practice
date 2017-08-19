@@ -31,7 +31,9 @@ app.get("/", function (req, res) {
 });
 
 app.post("/", function (req, res) {
-    console.log("POST");
+    console.log(req.body);
+    userList.push(req.body);
+    res.json("ok");
 });
 
 app.put("/", function (req, res) {

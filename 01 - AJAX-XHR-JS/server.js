@@ -34,8 +34,8 @@ app.post("/", function (req, res) {
     console.log("POST");
 });
 
-app.update("/", function (req, res) {
-    console.log("UPDATE");
+app.put("/", function (req, res) {
+    console.log("PUT");
 });
 
 app.delete("/", function (req, res) {

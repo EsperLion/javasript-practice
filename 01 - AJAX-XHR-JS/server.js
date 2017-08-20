@@ -32,12 +32,21 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {
     console.log(req.body);
-    userList.push(req.body);
-    res.json("ok");
+    userList.push(new User(req.body.name, req.body.surname, req.body.age));
+    res.json(userList);
 });
 
 app.put("/", function (req, res) {
-    console.log("PUT");
+    for (var i = 0; i < userList.length; i++) {
+        if (userList[i].id === req.body.id) {
+            userList[i].name = req.body.name;
+            userList[i].surname = req.body.surname;
+            userList[i].age = req.body.age;
+            break;
+        }
+    }
+
+    res.json(userList);
 });
 
 app.delete("/", function (req, res) {

@@ -12,14 +12,26 @@ var routes = {
 };
 
 function click (e) {
-    e.preventDefault;
+    e.preventDefault();
+}
+
+function click2 (e, url) {
+    e.preventDefault();
+    debugger
+    history.pushState({}, '', url);
+    ajax(url);
 }
 
 window.onhashchange = function () {
+    ajax();
+};
+
+function ajax (url) {
     // debugger
     var path = window.location.hash.split('').slice(1).join('');
 
-    var templateUrl = routes[path].template;
+    debugger
+    var templateUrl = routes[path || url].template;
 
     var xhr = new XMLHttpRequest();
     // debugger
@@ -37,5 +49,5 @@ window.onhashchange = function () {
     };
 
     xhr.send();
+}
 
-};

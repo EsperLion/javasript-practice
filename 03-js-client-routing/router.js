@@ -1,29 +1,41 @@
 'use strict';
 
-var router = (function () {
-
-
-    function Router () {
-        this.routes = {};
+var routes = {
+    home: {
+        url: 'home',
+        template: 'views/home.html'
+    },
+    blog: {
+        url: 'blog',
+        template: 'views/blog.html'
     }
+};
 
-    Router.prototype.addRoute = function (path, template) {
-        if (!this.routes[path]) {
-            this.routes[path] = {
-                name: path,
-                template: template
-            };
-        }
-        return this;
+function click (e) {
+    e.preventDefault;
+}
+
+window.onhashchange = function () {
+    // debugger
+    var path = window.location.hash.split('').slice(1).join('');
+
+    var templateUrl = routes[path].template;
+
+    var xhr = new XMLHttpRequest();
+    // debugger
+    xhr.open('GET', 'http://localhost:8080/' + templateUrl, true);
+
+    xhr.onload = function (data) {
+        // debugger
+        console.log(this);
+        console.log(data);
+        document.getElementById('root').innerHTML = this.responseText;
     };
 
-    Router.prototype.goTo = function (routeName, routeParams) {
-
-        if (!this.routes[routeName]) {
-            location.hash = '';
-        }
-
+    xhr.error = function (err) {
+        debugger
     };
 
+    xhr.send();
 
-})();
+};

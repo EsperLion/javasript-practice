@@ -1,4 +1,6 @@
+var path = require('path');
 
+console.log(__dirname);
 
 module.exports = {
     entry: './main.js',
@@ -18,7 +20,12 @@ module.exports = {
             {
                 test: /\.hbs/,
                 loader: 'handlebars-loader',
-                exclude: /(node_modules|bower_components)/
+                exclude: /(node_modules|bower_components)/,
+                query: {
+                    partialDirs: [
+                        path.join(__dirname, '')
+                    ]
+                }
             }
         ]
     },

@@ -1,9 +1,12 @@
 import {User} from './lib';
+
 import mainTpl from './main.hbs';
 
-let user = new User('German', 22);
+// let user = new User('German', 22);
+//
+// user.showInfo();
 
-user.showInfo();
+// console.log(partial());
 
 let users = [
     new User('German', 22),
@@ -11,8 +14,17 @@ let users = [
     new User('Gik', 42)
 ];
 
-let compiledTemplate = mainTpl({
-    users: users
-});
+var context = {
+    users: users,
+    partial: {
+        title: 'This is partial!',
+        content: 'This is partial! This is partial! This is partial! This is partial! This is partial! This is partial!'
+    }
+};
+
+
+// Handlebars.registerPartial('card', partial(context.partial));
+
+let compiledTemplate = mainTpl(context);
 
 document.getElementById('root').innerHTML = compiledTemplate;

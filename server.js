@@ -3,7 +3,7 @@ var static = require('node-static');
 //
 // Create a node-static server instance to serve the './public' folder
 //
-var file = new static.Server('./03-js-client-routing');
+var file = new static.Server('./04-webpack-handlebars');
 
 require('http').createServer(function (request, response) {
     request.addListener('end', function () {

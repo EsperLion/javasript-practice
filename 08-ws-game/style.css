@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+
+body {
+    background: black;
+}
+
+.field {
+    position: relative;
+    width: 98vw;
+    height: 98vh;
+    padding: 20px;
+    border: 5px solid forestgreen;
+    border-radius: 20px;
+    background: lightgrey;
+    margin: 1vh 1vw;
+    box-sizing: border-box;
+}
+
+.player {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 50%;
+    box-shadow: 0 0 15px black;
+}
+.player--you {
+    background: darkolivegreen;
+}

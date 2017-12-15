@@ -13,7 +13,7 @@ var keyPressed = {
 };
 
 var fps = 60;
-var speed = 32;
+var speed = 300;
 
 var posx = 0;
 var posy = 0;
@@ -61,18 +61,22 @@ setInterval(function () {
     var player = document.querySelector(".player.player--you");
 
     if (keyPressed.arrowUp) {
-        player.style.transform = "translate(" + (posx) + "px, " + (--posy) + "px)";
+        posy = posy - speed / 60;
+        player.style.transform = "translate(" + (posx) + "px, " + (posy) + "px)";
     }
     if (keyPressed.arrowDown) {
-        player.style.transform = "translate(" + (posx) + "px, " + (++posy) + "px)";
+        posy = posy + speed / 60;
+        player.style.transform = "translate(" + (posx) + "px, " + (posy) + "px)";
     }
     if (keyPressed.arrowRight) {
-        player.style.transform = "translate(" + (++posx) + "px, " + (posy) + "px)";
+        posx = posx + speed / 60;
+        player.style.transform = "translate(" + (posx) + "px, " + (posy) + "px)";
     }
     if (keyPressed.arrowLeft) {
-        player.style.transform = "translate(" + (--posx) + "px, " + (posy) + "px)";
+        posx = posx - speed / 60;
+        player.style.transform = "translate(" + (posx) + "px, " + (posy) + "px)";
     }
-}, 20);
+}, 10);
 
 
 

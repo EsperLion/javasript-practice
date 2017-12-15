@@ -26,13 +26,13 @@ document.addEventListener("keydown", function (e) {
         keyPressed.arrowUp = true;
     }
     if (keyCodes.arrowDown === e.keyCode) {
-        keyPressed[e.keyCode] = true;
+        keyPressed.arrowDown = true;
     }
     if (keyCodes.arrowRight === e.keyCode) {
-        keyPressed[e.keyCode] = true;
+        keyPressed.arrowRight = true;
     }
     if (keyCodes.arrowLeft === e.keyCode) {
-        keyPressed[e.keyCode] = true;
+        keyPressed.arrowLeft = true;
     }
 
 });
@@ -42,16 +42,16 @@ document.addEventListener("keyup", function (e) {
     console.log('up', JSON.stringify(keyPressed));
 
     if (keyCodes.arrowUp === e.keyCode) {
-        keyPressed[e.keyCode] = false;
+        keyPressed.arrowUp = false;
     }
     if (keyCodes.arrowDown === e.keyCode) {
-        keyPressed[e.keyCode] = false;
+        keyPressed.arrowDown = false;
     }
     if (keyCodes.arrowRight === e.keyCode) {
-        keyPressed[e.keyCode] = false;
+        keyPressed.arrowRight = false;
     }
     if (keyCodes.arrowLeft === e.keyCode) {
-        keyPressed[e.keyCode] = false;
+        keyPressed.arrowLeft = false;
     }
 
 });

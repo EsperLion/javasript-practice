@@ -3,7 +3,7 @@ var static = require('node-static');
 //
 // Create a node-static server instance to serve the './public' folder
 //
-var file = new static.Server('./05-lodash-templates');
+var file = new static.Server('./07-regx-js');
 
 require('http').createServer(function (request, response) {
     request.addListener('end', function () {

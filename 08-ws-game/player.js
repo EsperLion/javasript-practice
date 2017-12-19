@@ -15,12 +15,15 @@ var keyPressed = {
 var fps = 60;
 var speed = 300;
 
-var posx = 0;
-var posy = 0;
+var playerInst = {
+  x: 0,
+  y: 0  
+};
+
+var playerID = null;
 
 document.addEventListener("keydown", function (e) {
 
-    console.log('down', JSON.stringify(keyPressed));
 
     if (keyCodes.arrowUp === e.keyCode) {
         keyPressed.arrowUp = true;
@@ -39,7 +42,6 @@ document.addEventListener("keydown", function (e) {
 
 document.addEventListener("keyup", function (e) {
 
-    console.log('up', JSON.stringify(keyPressed));
 
     if (keyCodes.arrowUp === e.keyCode) {
         keyPressed.arrowUp = false;
@@ -61,22 +63,34 @@ setInterval(function () {
     var player = document.querySelector(".player.player--you");
 
     if (keyPressed.arrowUp) {
-        posy = posy - speed / 60;
-        player.style.transform = "translate(" + (posx) + "px, " + (posy) + "px)";
+        playerInst.y = playerInst.y - speed / 60;
+        player.style.transform = "translate(" + (playerInst.x) + "px, " + (playerInst.y) + "px)";
     }
     if (keyPressed.arrowDown) {
-        posy = posy + speed / 60;
-        player.style.transform = "translate(" + (posx) + "px, " + (posy) + "px)";
+        playerInst.y = playerInst.y + speed / 60;
+        player.style.transform = "translate(" + (playerInst.x) + "px, " + (playerInst.y) + "px)";
     }
     if (keyPressed.arrowRight) {
-        posx = posx + speed / 60;
-        player.style.transform = "translate(" + (posx) + "px, " + (posy) + "px)";
+        playerInst.x = playerInst.x + speed / 60;
+        player.style.transform = "translate(" + (playerInst.x) + "px, " + (playerInst.y) + "px)";
     }
     if (keyPressed.arrowLeft) {
-        posx = posx - speed / 60;
-        player.style.transform = "translate(" + (posx) + "px, " + (posy) + "px)";
+        playerInst.x = playerInst.x - speed / 60;
+        player.style.transform = "translate(" + (playerInst.x) + "px, " + (playerInst.y) + "px)";
+    }
+    if (keyPressed.arrowLeft || keyPressed.arrowRight || keyPressed.arrowDown || keyPressed.arrowUp) {
+        send({
+            type: 'updatePostById',
+            position: playerInst
+        });
     }
 }, 10);
+
+
+function send (position) {
+    socket.send(JSON.stringify(position));
+}
+
 
 
 

@@ -8,6 +8,11 @@ module.exports.router = function (req, res) {
     var path = url.parse(req.url).path;
     console.log(path);
     if (routes[path] !== undefined) {
+
+
+
+
+
         routes[path](res)
     } else {
         res.write('huinya, davai po novoi');

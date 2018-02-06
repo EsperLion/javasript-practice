@@ -1,12 +1,12 @@
 var express = require("express"),
 	bodyParser = require("body-parser");
 
-var each = require('lodash-es/each')
+var each = require('lodash-es/ma')
 
 
 var app = express();
 
-var users = [
+let users = [
 	{
 		name: 'German',
 		age: 22
@@ -29,7 +29,6 @@ app.get("/get-info", function (req, res) {
 		.status(200)
 		.json(users);
 });
-
 
 app.post("/add-user", function (req, res) {
 	users.push({

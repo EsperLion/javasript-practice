@@ -1,6 +1,9 @@
 var express = require("express"),
 	bodyParser = require("body-parser");
 
+var each = require('lodash-es/each')
+
+
 var app = express();
 
 var users = [

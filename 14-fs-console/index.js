@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const readline = require('readline');
 const fs = require('fs');
 
@@ -16,7 +17,8 @@ rli.prompt();
 
 rli
   .on('line', (line) => {
-    const args = line.split('');
+    // const args = line.split('');
+    console.log(`You said: ${line}`);
     rli.prompt();
   })
   .on('close', () => {
